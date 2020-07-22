@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RolService } from '../../services/rol.service';
+import { RolesService } from '../../services/roles.service';
 import { Rol } from '../../models/rol';
 import { NgForm } from '@angular/forms';
 
@@ -10,33 +10,54 @@ import { NgForm } from '@angular/forms';
 export class RolesComponent implements OnInit {
   roles: Rol[];
 
-  constructor(public rolService: RolService) { }
+  constructor(public rolService: RolesService) {
+  }
 
   ngOnInit() {
     this.listarRoles();
   }
 
   listarRoles() {
-    this.roles = this.rolService.obtenerRoles();
-    console.log(this.roles);
+    this.rolService.obtenerRoles()
+    .subscribe( resp => this.roles = resp );
   }
 
-  guardarRol(form: NgForm) {
-    if (form.value.id) {
+  // tslint:disable-next-line: member-ordering
+  registerRol: Rol = {
+    nombre: '',
+    descripcion: ''
+  };
 
-    } else {
-      this.rolService.guardarRol(form.value);
+  async registrarRol(form: NgForm){
+    if (form.invalid) { return; }
+    const valido = await this.rolService.registrarRol( this.registerRol );
+    if ( valido ) {
+      alert('Correcto');
+      this.listarRoles();
       form.reset();
-      this.listarRoles();
+    } else {
+      alert('Error al registrar');
     }
   }
 
-  eliminarRol(idRol: string) {
-    if (confirm('¿Estás seguro de eliminar este rol?')) {
-      this.roles.splice(Number(idRol), 1);
-      this.listarRoles();
-    }
-    // this.listarRoles();
-  }
+  // registrarRol(form: NgForm) {
+
+  //   console.log(form.value);
+  //   // if (form.value.id) {
+
+  //   // } else {
+  //   //   this.rolService.registrarRol(form.value);
+  //   //   form.reset();
+  //   //   this.listarRoles();
+  //   // }
+  // }
+
+  // eliminarRol(idRol: string) {
+  //   if (confirm('¿Estás seguro de eliminar este rol?')) {
+  //     this.roles.splice(Number(idRol), 1);
+  //     this.listarRoles();
+  //   }
+  //   // this.listarRoles();
+  // }
 
 }

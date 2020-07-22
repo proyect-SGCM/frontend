@@ -1,11 +1,10 @@
 export class Rol {
-  constructor (idRol = 0, nombre = '', descripcion = '') {
+  constructor ( idRol, nombre, descripcion) {
     this.idRol = idRol;
     this.nombre = nombre;
     this.descripcion = descripcion;
   }
-
-  idRol: number;
+  idRol?: number;
   nombre: string;
   descripcion: string;
 }

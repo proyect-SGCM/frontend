@@ -17,7 +17,9 @@ import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component
 import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
 import { RolesComponent } from './pages/roles/roles.component';
-import { RolService } from './services/rol.service';
+import { RolesService } from './services/roles.service';
+import { MedicosComponent } from './pages/medicos/medicos.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,15 +33,17 @@ import { RolService } from './services/rol.service';
     BreadcrumbsComponent,
     PagesComponent,
     RegisterComponent,
-    RolesComponent
+    RolesComponent,
+    MedicosComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    APP_ROUTES
+    APP_ROUTES,
+    HttpClientModule
   ],
   providers: [
-    RolService
+    RolesService
   ],
   bootstrap: [AppComponent]
 })
