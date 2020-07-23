@@ -6,7 +6,7 @@ import { Rol } from '../models/rol';
 
 export class RolesService {
 
-  readonly URL = 'http://localhost:8080/roles';
+  readonly URL = 'http://3.18.214.105:8081/roles';
   constructor( private http: HttpClient ) { }
 
   obtenerRoles(){

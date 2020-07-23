@@ -20,6 +20,7 @@ import { RolesComponent } from './pages/roles/roles.component';
 import { RolesService } from './services/roles.service';
 import { MedicosComponent } from './pages/medicos/medicos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UsuariosService } from './services/usuarios.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    RolesService
+    RolesService,
+    UsuariosService
   ],
   bootstrap: [AppComponent]
 })
