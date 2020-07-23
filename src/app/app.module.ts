@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Rutas
 import { APP_ROUTES } from './app.routes';
@@ -18,6 +19,10 @@ import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { RolService } from './services/rol.service';
+import { EspecialidadesComponent } from './pages/especialidades/especialidades.component';
+import { EspecialidadService } from './services/especialidad.service';
+import { MedicoService } from './services/medico.service';
+import { MedicosComponent } from './pages/medicos/medicos.component';
 
 @NgModule({
   declarations: [
@@ -31,15 +36,20 @@ import { RolService } from './services/rol.service';
     BreadcrumbsComponent,
     PagesComponent,
     RegisterComponent,
-    RolesComponent
+    RolesComponent,
+    EspecialidadesComponent,
+    MedicosComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     APP_ROUTES
   ],
   providers: [
-    RolService
+    RolService,
+    EspecialidadService,
+    MedicoService
   ],
   bootstrap: [AppComponent]
 })
