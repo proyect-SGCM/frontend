@@ -8,6 +8,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 import { RolesComponent } from './pages/roles/roles.component';
+import { EspecialidadesComponent } from './pages/especialidades/especialidades.component';
+import { MedicosComponent } from './pages/medicos/medicos.component';
 
 
 
@@ -19,6 +21,8 @@ const appRoutes: Routes = [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'progress', component: ProgressComponent },
             { path: 'roles', component: RolesComponent },
+            { path: 'especialidades', component: EspecialidadesComponent },
+            { path: 'medicos', component: MedicosComponent },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]
     },
