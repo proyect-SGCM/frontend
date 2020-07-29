@@ -17,16 +17,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
 import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
-import { RolesComponent } from './pages/roles/roles.component';
-import { RolService } from './services/rol.service';
-import { EspecialidadesComponent } from './pages/especialidades/especialidades.component';
-import { EspecialidadService } from './services/especialidad.service';
 import { MedicoService } from './services/medico.service';
 import { MedicosComponent } from './pages/medicos/medicos.component';
-import { ExamenService } from './services/examen.service';
-import { ExamenesComponent } from './pages/examenes/examenes.component';
-import { PacienteService } from './services/paciente.service';
-import { PacientesComponent } from './pages/pacientes/pacientes.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +32,7 @@ import { PacientesComponent } from './pages/pacientes/pacientes.component';
     BreadcrumbsComponent,
     PagesComponent,
     RegisterComponent,
-    RolesComponent,
-    EspecialidadesComponent,
     MedicosComponent,
-    ExamenesComponent,
-    PacientesComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,11 +41,7 @@ import { PacientesComponent } from './pages/pacientes/pacientes.component';
     APP_ROUTES
   ],
   providers: [
-    RolService,
-    EspecialidadService,
     MedicoService,
-    ExamenService,
-    PacienteService
   ],
   bootstrap: [AppComponent]
 })

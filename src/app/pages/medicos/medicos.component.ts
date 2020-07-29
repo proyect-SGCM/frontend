@@ -18,6 +18,7 @@ export class MedicosComponent implements OnInit {
 
   listarMedicos() {
     this.medicoService.obtenerMedicos().subscribe((res) => {
+      console.log(res);
       this.medicoService.medicos = res as Medico[];
     }, error => console.log(<any>error));
   }
@@ -25,14 +26,14 @@ export class MedicosComponent implements OnInit {
   guardarMedico(formMedico: NgForm) {
     if (formMedico.value.id_especialidad) {
       // tslint:disable-next-line: max-line-length
-      this.medicoService.actualizarMedico(formMedico.value.id_medico, formMedico.value.nombre, formMedico.value.apellido, formMedico.value.nro_consultorio).subscribe((res) => {
+      this.medicoService.actualizarMedico(formMedico.value.id_medico, formMedico.value.nombre, formMedico.value.apellido, formMedico.value.username, formMedico.value.password,  formMedico.value.nro_consultorio).subscribe((res) => {
         this.opcionBoton = 'Registrar';
         this.listarMedicos();
         formMedico.reset();
       }, error => console.log(<any>error));
     } else {
       // tslint:disable-next-line: max-line-length
-      this.medicoService.guardarMedico(formMedico.value.nombre, formMedico.value.apellido, formMedico.value.nro_consultorio).subscribe((res) => {
+      this.medicoService.guardarMedico(formMedico.value.nombre, formMedico.value.apellido, formMedico.value.username, formMedico.value.password,  formMedico.value.nro_consultorio).subscribe((res) => {
         this.listarMedicos();
         formMedico.reset();
       }, error => console.log(<any>error));

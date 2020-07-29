@@ -22,11 +22,7 @@ const appRoutes: Routes = [
         children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'progress', component: ProgressComponent },
-            { path: 'roles', component: RolesComponent },
-            { path: 'especialidades', component: EspecialidadesComponent },
             { path: 'medicos', component: MedicosComponent },
-            { path: 'pacientes', component: PacientesComponent },
-            { path: 'examenes', component: ExamenesComponent },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]
     },
