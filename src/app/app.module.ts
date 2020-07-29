@@ -16,6 +16,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
 import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
+import { ExamenService } from './services/examen.service';
+import { ExamenesComponent } from './pages/examenes/examenes.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +31,14 @@ import { RegisterComponent } from './login/register.component';
     SidebarComponent,
     BreadcrumbsComponent,
     PagesComponent,
-    RegisterComponent
+    RegisterComponent,
+    ExamenesComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTES
   ],
-  providers: [],
+  providers: [ExamenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
