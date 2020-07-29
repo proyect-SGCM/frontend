@@ -23,6 +23,10 @@ import { EspecialidadesComponent } from './pages/especialidades/especialidades.c
 import { EspecialidadService } from './services/especialidad.service';
 import { MedicoService } from './services/medico.service';
 import { MedicosComponent } from './pages/medicos/medicos.component';
+import { ExamenService } from './services/examen.service';
+import { ExamenesComponent } from './pages/examenes/examenes.component';
+import { PacienteService } from './services/paciente.service';
+import { PacientesComponent } from './pages/pacientes/pacientes.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,9 @@ import { MedicosComponent } from './pages/medicos/medicos.component';
     RegisterComponent,
     RolesComponent,
     EspecialidadesComponent,
-    MedicosComponent
+    MedicosComponent,
+    ExamenesComponent,
+    PacientesComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,9 @@ import { MedicosComponent } from './pages/medicos/medicos.component';
   providers: [
     RolService,
     EspecialidadService,
-    MedicoService
+    MedicoService,
+    ExamenService,
+    PacienteService
   ],
   bootstrap: [AppComponent]
 })
