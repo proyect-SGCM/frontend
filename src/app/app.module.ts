@@ -16,6 +16,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
 import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
+import { RolesComponent } from './pages/roles/roles.component';
+import { RolService } from './services/rol.service';
 
 @NgModule({
   declarations: [
@@ -29,13 +31,14 @@ import { RegisterComponent } from './login/register.component';
     SidebarComponent,
     BreadcrumbsComponent,
     PagesComponent,
-    RegisterComponent
+    RegisterComponent,
+    RolesComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTES
   ],
-  providers: [],
+  providers: [RolService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
