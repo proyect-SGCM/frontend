@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 // Rutas
 import { APP_ROUTES } from './app.routes';
@@ -18,8 +16,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
 import { PagesComponent } from './pages/pages.component';
 import { RegisterComponent } from './login/register.component';
-import { MedicoService } from './services/medico.service';
-import { MedicosComponent } from './pages/medicos/medicos.component';
+import { RolesComponent } from './pages/roles/roles.component';
+import { RolService } from './services/rol.service';
 
 @NgModule({
   declarations: [
@@ -34,17 +32,13 @@ import { MedicosComponent } from './pages/medicos/medicos.component';
     BreadcrumbsComponent,
     PagesComponent,
     RegisterComponent,
-    MedicosComponent,
+    RolesComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpClientModule,
     APP_ROUTES
   ],
-  providers: [
-    MedicoService,
-  ],
+  providers: [RolService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
