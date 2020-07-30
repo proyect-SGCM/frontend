@@ -1,0 +1,76 @@
+<div class="row">
+  <h2>Gestión de Médicos</h2>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <form #medicoForm="ngForm" (ngSubmit)="guardarMedico(medicoForm)"
+      class="form-horizontal form-material" id="loginform" action="index.html">
+      <input type="hidden" name="id_medico" #id_medico="ngModel"
+        [(ngModel)]="medicoService.medicoSeleccionado.id_medico">
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Nombres" name="nombre" #nombre="ngModel"
+            [(ngModel)]="medicoService.medicoSeleccionado.nombre" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Apellidos" name="apellido" #apellido="ngModel"
+            [(ngModel)]="medicoService.medicoSeleccionado.apellido" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Nombre de Usuario" name="username" #username="ngModel"
+            [(ngModel)]="medicoService.medicoSeleccionado.username" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="password" placeholder="Contraseña" name="password" #password="ngModel"
+            [(ngModel)]="medicoService.medicoSeleccionado.password" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="number" placeholder="Nr. de consultorio" name="nro_consultorio" #nro_consultorio="ngModel"
+            [(ngModel)]="medicoService.medicoSeleccionado.nro_consultorio" required>
+        </div>
+      </div>
+      <div class="form-group text-center m-t-20">
+        <div class="col-xs-12">
+          <button class="btn btn-info  btn-block text-uppercase waves-effect waves-light" type="submit"
+            [disabled]="!medicoForm.form.valid">{{ opcionBoton }}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-8">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Nombre Usuario</th>
+            <th>Nr. de Consultorio</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let medico of this.medicoService.medicos; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{ medico.nombre}}</td>
+            <td>{{ medico.apellido }}</td>
+            <td>{{ medico.username }}</td>
+            <td>{{ medico.nro_consultorio }}</td>
+            <td><a class="btn waves-effect waves-light btn-success hidden-md-down" (click)="editarMedico(medico)"> Editar</a></td>
+            <td><a type="submit" class="btn waves-effect waves-light btn-danger hidden-md-down text-white" (click)="eliminarMedico(medico.id_medico)"> Eliminar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

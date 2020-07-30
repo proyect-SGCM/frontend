@@ -1,0 +1,54 @@
+<div class="row">
+  <h2>Gestión de Especialidades</h2>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <form #especialidadForm="ngForm" (ngSubmit)="guardarEspecialidad(especialidadForm)"
+      class="form-horizontal form-material" id="loginform" action="index.html">
+      <input type="hidden" name="id_especialidad" #id_especialidad="ngModel"
+        [(ngModel)]="especialidadService.especialidadSeleccionada.id_especialidad">
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Código" name="codigo" #codigo="ngModel"
+            [(ngModel)]="especialidadService.especialidadSeleccionada.codigo" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Nombre" name="nombre" #nombre="ngModel"
+            [(ngModel)]="especialidadService.especialidadSeleccionada.nombre" required>
+        </div>
+      </div>
+      <div class="form-group text-center m-t-20">
+        <div class="col-xs-12">
+          <button class="btn btn-info  btn-block text-uppercase waves-effect waves-light" type="submit"
+            [disabled]="!especialidadForm.form.valid">{{ opcionBoton }}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-8">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let especialidad of this.especialidadService.especialidades; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{ especialidad.codigo }}</td>
+            <td>{{ especialidad.nombre }}</td>
+            <td><a class="btn waves-effect waves-light btn-success hidden-md-down" (click)="editarEspecialidad(especialidad)"> Editar</a></td>
+            <td><a type="submit" class="btn waves-effect waves-light btn-danger hidden-md-down text-white" (click)="eliminarEspecialidad(especialidad.id_especialidad)"> Eliminar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
