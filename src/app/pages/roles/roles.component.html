@@ -1,0 +1,47 @@
+<div class="row">
+    <h2>Gestión de Roles</h2>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form #rolForm="ngForm" (ngSubmit)="guardarRol(rolForm)" class="form-horizontal form-material" id="loginform" action="index.html">
+            <input type="hidden" name="idRol" #idRol="ngModel" [(ngModel)]="rolService.rolSeleccionado.idRol">
+            <div class="form-group m-t-20">
+                <div class="col-xs-12">
+                    <input class="form-control" type="text" placeholder="Nombre" name="nombre" #nombre="ngModel" [(ngModel)]="rolService.rolSeleccionado.nombre" required>
+                </div>
+            </div>
+            <div class="form-group m-t-20">
+                <div class="col-xs-12">
+                    <textarea class="form-control" placeholder="Descripción" name="descripcion" #descripcion="ngModel" [(ngModel)]="rolService.rolSeleccionado.descripcion" required></textarea>
+                </div>
+            </div>
+            <div class="form-group text-center m-t-20">
+                <div class="col-xs-12">
+                    <button class="btn btn-info  btn-block text-uppercase waves-effect waves-light" type="submit" [disabled]="!rolForm.form.valid">Crear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rol of rolService.roles; let i = index">
+                        <td>{{ i+1 }}</td>
+                        <td>{{ rol.nombre }}</td>
+                        <td>{{ rol.descripcion }}</td>
+                        <td><a type="submit" class="btn waves-effect waves-light btn-danger hidden-md-down text-white" (click)="eliminarRol(rol.idRol)"> Eliminar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

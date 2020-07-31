@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  
+
+  node:
+    build: .
+    container_name: node
+    
+    environment:
+    ports:
+      - 8092:80
+    #command: sh -c "dockerize -wait tcp://postgres:8091 -timeout 300s -wait-retry-interval 30s /sayhello"
+    #networks:
+      #- my-net
+    #expose:
+      #- 8090
+    #restart: always
+    #ports:
+      #- 8090:8080
+    environment:
+      #- DB_SERVER=database

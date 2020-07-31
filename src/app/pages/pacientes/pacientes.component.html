@@ -1,0 +1,93 @@
+<div class="row">
+  <h2>Gestión de Pacientes</h2>
+</div>
+<div class="row">
+  <!-- <div class="col-md-3">
+    <form #pacienteForm="ngForm" (ngSubmit)="guardarPaciente(pacienteForm)"
+      class="form-horizontal form-material" id="loginform" action="index.html">
+      <input type="hidden" name="id_pacientes" #id_pacientes="ngModel"
+        [(ngModel)]="pacienteService.pacienteSeleccionado.id_pacientes">
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Nombres" name="nombre" #nombre="ngModel"
+            [(ngModel)]="pacienteService.pacienteSeleccionado.nombre" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Apellidos" name="apellido" #apellido="ngModel"
+            [(ngModel)]="pacienteService.pacienteSeleccionado.apellido" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Fecha de nacimiento" name="fecha_nacimiento" #fecha_nacimiento="ngModel"
+            [(ngModel)]="pacienteService.pacienteSeleccionado.fecha_nacimiento" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Nombre de Usuario" name="username" #username="ngModel"
+            [(ngModel)]="medicoService.medicoSeleccionado.username" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="password" placeholder="Contraseña" name="password" #password="ngModel"
+            [(ngModel)]="medicoService.medicoSeleccionado.password" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="number" placeholder="Nr. de consultorio" name="nro_consultorio" #nro_consultorio="ngModel"
+            [(ngModel)]="medicoService.medicoSeleccionado.nro_consultorio" required>
+        </div>
+      </div>
+      <div class="form-group text-center m-t-20">
+        <div class="col-xs-12">
+          <button class="btn btn-info  btn-block text-uppercase waves-effect waves-light" type="submit"
+            [disabled]="!pacienteForm.form.valid">{{ opcionBoton }}</button>
+        </div>
+      </div>
+    </form>
+  </div> -->
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Fecha Nacimiento</th>
+            <th>Sexo</th>
+            <th>Estado Civil</th>
+            <th>Ocupación</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Tipo Sangre</th>
+            <th>Nombre Usuario</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let paciente of this.pacienteService.pacientes; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{ paciente.nombre}}</td>
+            <td>{{ paciente.apellido}}</td>
+            <td>{{ paciente.fecha_nacimiento }}</td>
+            <td>{{ paciente.estado_civil }}</td>
+            <td>{{ paciente.ocupacion }}</td>
+            <td>{{ paciente.direccion }}</td>
+            <td>{{ paciente.telefono }}</td>
+            <td>{{ paciente.tipo_sangre }}</td>
+            <td>{{ paciente.username }}</td>
+            <!-- <td><a class="btn waves-effect waves-light btn-success hidden-md-down" (click)="editarMedico(medico)"> Editar</a></td> -->
+            <td><a type="submit" class="btn waves-effect waves-light btn-danger hidden-md-down text-white" (click)="eliminarPaciente(paciente.id_pacientes)"> Eliminar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -7,8 +7,13 @@ import { ProgressComponent } from './pages/progress/progress.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
-import { Graficas1Component } from './pages/graficas1/graficas1.component';
 import { RolesComponent } from './pages/roles/roles.component';
+import { EspecialidadesComponent } from './pages/especialidades/especialidades.component';
+import { MedicosComponent } from './pages/medicos/medicos.component';
+import { ExamenesComponent } from './pages/examenes/examenes.component';
+import { PacientesComponent } from './pages/pacientes/pacientes.component';
+import { HistoriaClinicaComponent } from './pages/historia-clinica/historia-clinica.component';
+import { CitasComponent } from './pages/citas/citas.component';
 
 
 
@@ -19,8 +24,13 @@ const appRoutes: Routes = [
         children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'progress', component: ProgressComponent },
-            { path: 'graficas1', component: Graficas1Component },
             { path: 'roles', component: RolesComponent },
+            { path: 'especialidades', component: EspecialidadesComponent },
+            { path: 'medicos', component: MedicosComponent },
+            { path: 'pacientes', component: PacientesComponent },
+            { path: 'examenes', component: ExamenesComponent },
+            { path: 'historiaClinica', component: HistoriaClinicaComponent },
+            { path: 'citas', component: CitasComponent },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]
     },

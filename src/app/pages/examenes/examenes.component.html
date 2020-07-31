@@ -1,0 +1,70 @@
+<div class="row">
+  <h2>Gestión de Exámenes</h2>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <form #examenForm="ngForm" (ngSubmit)="guardarExamen(examenForm)"
+      class="form-horizontal form-material" id="loginform" action="index.html">
+      <input type="hidden" name="id_examen" #id_examen="ngModel"
+        [(ngModel)]="examenService.examenSeleccionado.id_examen">
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Código de exámen" name="codigo_examen" #codigo_examen="ngModel"
+            [(ngModel)]="examenService.examenSeleccionado.codigo_examen" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Nombre" name="nombre" #nombre="ngModel"
+            [(ngModel)]="examenService.examenSeleccionado.nombre" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Fecha" name="fecha" #fecha="ngModel"
+            [(ngModel)]="examenService.examenSeleccionado.fecha" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <textarea name="resultado" class="form-control" type="text" #resultado="ngModel"
+          [(ngModel)]="examenService.examenSeleccionado.resultado" required>Resultado</textarea>
+        </div>
+      </div>
+      <div class="form-group text-center m-t-20">
+        <div class="col-xs-12">
+          <button class="btn btn-info  btn-block text-uppercase waves-effect waves-light" type="submit"
+            [disabled]="!examenForm.form.valid">{{ opcionBoton }}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-8">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Código Exámen</th>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Resultado</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let examen of this.examenService.examenes; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{ examen.codigo_examen }}</td>
+            <td>{{ examen.nombre }}</td>
+            <td>{{ examen.fecha }}</td>
+            <td>{{ examen.resultado }}</td>
+            <td><a class="btn waves-effect waves-light btn-success hidden-md-down" (click)="editarEamen(examen)"> Editar</a></td>
+            <td><a type="submit" class="btn waves-effect waves-light btn-danger hidden-md-down text-white" (click)="eliminarExamen(examen.id_examen)"> Eliminar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

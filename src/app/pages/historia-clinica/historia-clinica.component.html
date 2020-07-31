@@ -1,0 +1,108 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Nueva historia Clínica 
+                </button>
+                <div class="card-header mt-3">
+                    <div class="card-title">
+                        <h3>Historias Clínicas Registradas</h3>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Motivo de Consulta</th>
+                            <th scope="col">Enfermedad Actual</th>
+                            <th scope="col">Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let historia of hisClinica">
+                        <tr>
+                            <th scope="row">{{ historia.codigo_historiaClinica }}</th>
+                            <td>{{ historia.motivo_consulta }}</td>
+                            <td>{{ historia.enfermedad_actual}} </td>
+                            <td>{{ historia.fecha }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Registro de Hisotria Clínica</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #fRegistro="ngForm" (ngSubmit)="registro(fRegistro)">
+                    <div class="form-group">
+                        <label>Pacientes</label>
+                        <select  class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Código</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" name="codigo_historiaClinica" [(ngModel)]="modeloHistoria.codigo_historiaClinica"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Motivo consulta</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="motivo_consulta" [(ngModel)]="modeloHistoria.motivo_consulta" rows="3"></textarea>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Enfermedad Actual</label>
+                        <input class="form-control" type="text" name="enfermedad_actual" [(ngModel)]="modeloHistoria.enfermedad_actual" />
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Estatura</label>
+                        <div class="col-sm-10">
+                          <input class="form-control" type="number" name="estatura" [(ngModel)]="modeloHistoria.estatura"  />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label" >Peso</label>
+                        <div class="col-sm-10">
+                          <input class="form-control" type="number" name="peso" [(ngModel)]="modeloHistoria.peso"  />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Presión</label>
+                        <div class="col-sm-10">
+                          <input  class="form-control" type="number" name="presion" [(ngModel)]="modeloHistoria.presion"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Fecha</label>
+                        <div class="col-sm-10">
+                          <input class="form-control" type="date" name="fecha" [(ngModel)]="modeloHistoria.fecha"  />
+                        </div>
+                    </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
