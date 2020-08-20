@@ -10,6 +10,8 @@ import { RegisterComponent } from './login/register.component';
 import { RolesComponent } from './pages/roles/roles.component';
 import { EspecialidadesComponent } from './pages/especialidades/especialidades.component';
 import { MedicosComponent } from './pages/medicos/medicos.component';
+import { ExamenesComponent } from './pages/examenes/examenes.component';
+import { PacientesComponent } from './pages/pacientes/pacientes.component';
 
 
 
@@ -20,8 +22,6 @@ const appRoutes: Routes = [
         children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'progress', component: ProgressComponent },
-            { path: 'roles', component: RolesComponent },
-            { path: 'especialidades', component: EspecialidadesComponent },
             { path: 'medicos', component: MedicosComponent },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
         ]

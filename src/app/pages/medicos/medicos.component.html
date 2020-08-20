@@ -21,6 +21,18 @@
       </div>
       <div class="form-group m-t-20">
         <div class="col-xs-12">
+          <input class="form-control" type="text" placeholder="Nombre de Usuario" name="username" #username="ngModel"
+            [(ngModel)]="medicoService.medicoSeleccionado.username" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
+          <input class="form-control" type="password" placeholder="Contraseña" name="password" #password="ngModel"
+            [(ngModel)]="medicoService.medicoSeleccionado.password" required>
+        </div>
+      </div>
+      <div class="form-group m-t-20">
+        <div class="col-xs-12">
           <input class="form-control" type="number" placeholder="Nr. de consultorio" name="nro_consultorio" #nro_consultorio="ngModel"
             [(ngModel)]="medicoService.medicoSeleccionado.nro_consultorio" required>
         </div>
@@ -41,6 +53,7 @@
             <th>#</th>
             <th>Nombres</th>
             <th>Apellidos</th>
+            <th>Nombre Usuario</th>
             <th>Nr. de Consultorio</th>
             <th>Opciones</th>
           </tr>
@@ -50,6 +63,7 @@
             <td>{{ i+1 }}</td>
             <td>{{ medico.nombre}}</td>
             <td>{{ medico.apellido }}</td>
+            <td>{{ medico.username }}</td>
             <td>{{ medico.nro_consultorio }}</td>
             <td><a class="btn waves-effect waves-light btn-success hidden-md-down" (click)="editarMedico(medico)"> Editar</a></td>
             <td><a type="submit" class="btn waves-effect waves-light btn-danger hidden-md-down text-white" (click)="eliminarMedico(medico.id_medico)"> Eliminar</a>
