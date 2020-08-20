@@ -2,18 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { MedicoService } from '../../services/medico.service';
 import { Medico } from '../../models/medico';
 import { NgForm } from '@angular/forms';
-
+import { RolService } from '../../services/rol.service';
+import { Rol } from '../../models/rol';
 @Component({
   selector: 'app-medicos',
   templateUrl: './medicos.component.html'
 })
 export class MedicosComponent implements OnInit {
   opcionBoton = 'Registrar';
+  roles: Rol [] = [];
 
-  constructor(public medicoService: MedicoService) { }
+  constructor(public medicoService: MedicoService,
+              public rolesService: RolService) { }
 
   ngOnInit() {
     this.listarMedicos();
+  }
+
+  obtenerRoles() {
+    this.rolesService.obtenerRoles()
+      .subscribe( resp =>{
+        this.rolesService.rol = resp as RolService[];
+
+    });
   }
 
   listarMedicos() {
